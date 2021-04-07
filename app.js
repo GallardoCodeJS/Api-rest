@@ -1,14 +1,13 @@
 //import
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 
 //executed express app
 const app = express();
 
 //middleware
 //Permite el envio de post y respuestas
-app.use(bodyParser.json());
+app.use(express.json());
 
 //Middlewares
 // app.use('/posts', () =>{
