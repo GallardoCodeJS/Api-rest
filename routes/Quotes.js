@@ -4,6 +4,18 @@ const router = express.Router();
 //Comunica con el models
 const Quote = require('../models/Quotes');
 
+
+//ROUTES
+
+router.get('/posts', (req, res) => {
+    //Envia el mensaje en pantalla
+    res.send('Post page ::');
+});
+
+router.get('/aboute', (req, res) => {
+    res.send("About page ::");
+});
+
 // Get all routes
 router.get('/', async (req, res) => {
 

@@ -1,3 +1,5 @@
+//Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env
+require('dotenv/config');
 //import
 const express = require('express');
 const mongoose = require('mongoose');
@@ -17,7 +19,7 @@ app.use(express.json());
 // app.use(auth);
 
 // Database
-mongoose.connect('mongodb://localhost/motivation', {
+mongoose.connect(process.env.DB_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -29,26 +31,14 @@ db.once('open', () => {
     console.log("Connected to MongoseDB database..OK");
 });
 
+// Import Quotes Rotes
+const QuotesRoute = require('./routes/Quotes');
+app.use('/quotes', QuotesRoute);
 
-//ROUTES
 app.get('/', (req, res) => {
     //Envia el mensaje en pantalla
     res.send('Home page ::');
 });
-
-app.get('/posts', (req, res) => {
-    //Envia el mensaje en pantalla
-    res.send('Post page ::');
-});
-
-app.get('/aboute', (req, res) => {
-    res.send("About page ::");
-});
-
-
-//Quotes
-const QuotesRoute = require('./routes/Quotes');
-app.use('/quotes', QuotesRoute);
 
 //Listening server port
 //Starting server
