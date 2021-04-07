@@ -1,7 +1,7 @@
 //import
 const express = require('express');
 const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 //executed express app
 const app = express();
@@ -20,9 +20,8 @@ mongoose.connect('mongodb://localhost/motivation', {
 });
 
 // DB instance
-
 const db = mongoose.connection;
-
+// DB inicialice
 db.once('open', () => {
     console.log("Connected to MongoseDB database..OK");
 });
@@ -39,7 +38,7 @@ app.get('/posts', (req, res) => {
     res.send('Post page ::');
 });
 
-app.get('/aboute', (req,res) => {
+app.get('/aboute', (req, res) => {
     res.send("About page ::");
 });
 
