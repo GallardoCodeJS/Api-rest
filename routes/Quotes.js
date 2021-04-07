@@ -13,10 +13,8 @@ router.get('/', (req, res) => {
 // Create new quote
 router.post('/new', (req, res) => {
     //recice un post desde el browser segun el Schema
-
     const newQuote = new Quote(req.body);
     res.json(newQuote);
-    // res.json(req.body);
     // res.send("Create new quote");
 });
 

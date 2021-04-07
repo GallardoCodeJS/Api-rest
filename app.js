@@ -6,6 +6,10 @@ const bodyParser = require('body-parser');
 //executed express app
 const app = express();
 
+//middleware
+//Permite el envio de post y respuestas
+app.use(bodyParser.json());
+
 //Middlewares
 // app.use('/posts', () =>{
 //     console.log("Esto se ejecuta antes de las routes");
